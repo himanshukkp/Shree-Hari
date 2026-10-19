@@ -1,0 +1,455 @@
+.header {
+
+  width: 100%;
+
+  height: 82px;
+ 
+  background: #faf7f1;
+ 
+  border-bottom: 1px solid rgba(65, 52, 39, 0.1);
+ 
+  display: flex;
+
+  align-items: center;
+ 
+  position: relative;
+
+  z-index: 100;
+
+}
+ 
+.headerInner {
+
+  width: 100%;
+
+  max-width: 1440px;
+ 
+  margin: 0 auto;
+
+  padding: 0 48px;
+ 
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+ 
+ 
+/* =========================
+
+   LOGO
+
+========================= */
+ 
+.logo {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+ 
+  cursor: pointer;
+ 
+  min-width: 150px;
+
+}
+.logo img{
+    width: 100px;
+}
+ 
+.logoMain {
+
+  font-family: "Cormorant Garamond", serif;
+ 
+  font-size: 28px;
+
+  font-weight: 500;
+ 
+  letter-spacing: 5px;
+ 
+  line-height: 1;
+
+  color: #292521;
+
+}
+ 
+.logoSub {
+
+  margin-top: 5px;
+ 
+  font-family: "Inter", sans-serif;
+ 
+  font-size: 7px;
+
+  font-weight: 500;
+ 
+  letter-spacing: 4px;
+ 
+  color: #a08358;
+
+}
+ 
+ 
+/* =========================
+
+   NAVIGATION
+
+========================= */
+ 
+.nav {
+
+  display: flex;
+
+  align-items: center;
+ 
+  gap: 38px;
+ 
+  margin-left: 50px;
+
+}
+ 
+.nav a {
+
+  position: relative;
+ 
+  text-decoration: none;
+ 
+  font-family: "Inter", sans-serif;
+ 
+  font-size: 12px;
+
+  font-weight: 500;
+ 
+  letter-spacing: 1.2px;
+ 
+  color: #3a3530;
+ 
+  transition: color 0.25s ease;
+
+}
+ 
+.nav a::after {
+
+  content: "";
+ 
+  position: absolute;
+ 
+  left: 0;
+
+  bottom: -7px;
+ 
+  width: 0;
+
+  height: 1px;
+ 
+  background: #b08a55;
+ 
+  transition: width 0.25s ease;
+
+}
+ 
+.nav a:hover {
+
+  color: #9b7747;
+
+}
+ 
+.nav a:hover::after {
+
+  width: 100%;
+
+}
+ 
+ 
+/* =========================
+
+   ACTIONS
+
+========================= */
+ 
+.actions {
+
+  display: flex;
+
+  align-items: center;
+ 
+  gap: 7px;
+
+}
+ 
+.iconButton,
+
+.cartButton,
+
+.menuButton {
+
+  border: none;
+ 
+  background: transparent;
+ 
+  cursor: pointer;
+ 
+  color: #332e29;
+ 
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+ 
+  transition:
+
+    color 0.2s ease,
+
+    transform 0.2s ease;
+
+}
+ 
+.iconButton {
+
+  width: 38px;
+
+  height: 38px;
+
+}
+ 
+.iconButton:hover,
+
+.cartButton:hover {
+
+  color: #a47b45;
+ 
+  transform: translateY(-1px);
+
+}
+ 
+ 
+/* =========================
+
+   CART
+
+========================= */
+ 
+.cartButton {
+
+  position: relative;
+ 
+  width: 40px;
+
+  height: 40px;
+ 
+  margin-left: 3px;
+
+}
+ 
+.cartCount {
+
+  position: absolute;
+ 
+  top: 2px;
+
+  right: 1px;
+ 
+  width: 15px;
+
+  height: 15px;
+ 
+  border-radius: 50%;
+ 
+  background: #a47b45;
+
+  color: #fff;
+ 
+  font-family: "Inter", sans-serif;
+ 
+  font-size: 8px;
+
+  font-weight: 600;
+ 
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+ 
+ 
+/* =========================
+
+   MOBILE MENU
+
+========================= */
+ 
+.menuButton {
+
+  display: none;
+
+}
+ 
+ 
+/* =========================
+
+   TABLET
+
+========================= */
+ 
+@media (max-width: 1000px) {
+ 
+  .headerInner {
+
+    padding: 0 30px;
+
+  }
+ 
+  .nav {
+
+    gap: 23px;
+
+    margin-left: 20px;
+
+  }
+ 
+  .nav a {
+
+    font-size: 11px;
+
+  }
+ 
+}
+ 
+ 
+/* =========================
+
+   MOBILE
+
+========================= */
+ 
+@media (max-width: 768px) {
+ 
+  .header {
+
+    height: 72px;
+
+  }
+ 
+  .headerInner {
+
+    padding: 0 20px;
+
+  }
+ 
+  .logo {
+
+    align-items: flex-start;
+
+    min-width: auto;
+
+  }
+ 
+  .logoMain {
+
+    font-size: 23px;
+
+    letter-spacing: 4px;
+
+  }
+ 
+  .logoSub {
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+
+  }
+ 
+  .nav {
+
+    display: none;
+
+  }
+ 
+  .actions {
+
+    gap: 2px;
+
+  }
+ 
+  .iconButton {
+
+    width: 35px;
+
+    height: 35px;
+
+  }
+ 
+  .cartButton {
+
+    width: 37px;
+
+    height: 37px;
+
+  }
+ 
+  .menuButton {
+
+    display: flex;
+ 
+    margin-left: 4px;
+
+  }
+ 
+}
+ 
+ 
+/* =========================
+
+   SMALL MOBILE
+
+========================= */
+ 
+@media (max-width: 430px) {
+ 
+  .headerInner {
+
+    padding: 0 15px;
+
+  }
+ 
+  .logoMain {
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+  }
+ 
+  .logoSub {
+
+    font-size: 5px;
+
+  }
+ 
+  .actions {
+
+    gap: 0;
+
+  }
+ 
+  .iconButton {
+
+    width: 32px;
+
+  }
+ 
+  .cartButton {
+
+    width: 34px;
+
+  }
+ 
+}
+ 
