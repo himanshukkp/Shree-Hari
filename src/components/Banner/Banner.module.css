@@ -1,0 +1,129 @@
+
+
+/* ==================================
+
+   WHY CHOOSE SHREE HARI
+
+================================== */
+ 
+.whyShreeHari {
+
+  width: 100%;
+
+  height: auto;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background-color: #f4e5d2;
+
+  margin: 60px 0;
+
+}
+ 
+.whyShreeHari img {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+
+}
+ 
+/* LARGE DESKTOP */
+ 
+@media (min-width: 1440px) {
+
+  .whyShreeHari {
+
+    margin: 80px 0;
+
+  }
+
+}
+ 
+/* LAPTOP */
+ 
+@media (min-width: 1025px) and (max-width: 1439px) {
+
+  .whyShreeHari {
+
+    margin: 60px 0;
+
+  }
+
+}
+ 
+/* TABLET */
+ 
+@media (max-width: 1024px) {
+
+  .whyShreeHari {
+
+    margin: 50px 0;
+
+  }
+ 
+  .whyShreeHari img {
+
+    width: 100%;
+
+    height: auto;
+
+  }
+
+}
+ 
+/* SMALL TABLET */
+ 
+@media (max-width: 768px) {
+
+  .whyShreeHari {
+
+    margin: 40px 0;
+
+  }
+
+}
+ 
+/* MOBILE */
+ 
+@media (max-width: 480px) {
+
+  .whyShreeHari {
+
+    margin: 30px 0;
+
+  }
+ 
+  .whyShreeHari img {
+
+    width: 100%;
+
+    height: auto;
+
+  }
+
+}
+ 
+/* SMALL MOBILE */
+ 
+@media (max-width: 360px) {
+
+  .whyShreeHari {
+
+    margin: 25px 0;
+
+  }
+
+}
+
+ 
