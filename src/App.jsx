@@ -15,8 +15,8 @@ function App() {
     <Categories></Categories>
     <Banner/>
     <FeaturedProducts></FeaturedProducts>
-    <h2>Checking</h2>
-    <p>hello i am chehcking this second time</p>
+   
+    <h6></h6>
     
 
     </>
