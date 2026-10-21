@@ -3,6 +3,7 @@ import './App.css'
 import Hero from './components/hero/Hero'
 import Categories from './components/categories/Categories'
 import Banner from './components/Banner/Banner'
+import FeaturedProducts from './components/Products/Products'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Hero></Hero>
     <Categories></Categories>
     <Banner/>
+    <FeaturedProducts></FeaturedProducts>
     
 
     </>
