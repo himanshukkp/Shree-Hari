@@ -15,6 +15,7 @@ function App() {
     <Categories></Categories>
     <Banner/>
     <FeaturedProducts></FeaturedProducts>
+    <h2>Checking</h2>
     
 
     </>
