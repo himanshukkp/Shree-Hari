@@ -115,6 +115,94 @@ const featuredProducts = [
 
   },
 
+  {
+
+    id: 5,
+
+    name: "Midnight Oud",
+
+    category: "ATTAR & PERFUME",
+
+    description: "A bold and sophisticated scent with deep woody notes.",
+
+    image: lavenderImg,
+
+    color: "blue",
+
+    rating: 5,
+
+    reviews: 27,
+
+  },
+
+
+  {
+
+    id: 6,
+
+    name: "Midnight Oud",
+
+    category: "ATTAR & PERFUME",
+
+    description: "A bold and sophisticated scent with deep woody notes.",
+
+    image: lavenderImg,
+
+    color: "blue",
+
+    rating: 5,
+
+    reviews: 27,
+
+  },
+
+
+  {
+
+    id: 7,
+
+    name: "Midnight Oud",
+
+    category: "ATTAR & PERFUME",
+
+    description: "A bold and sophisticated scent with deep woody notes.",
+
+    image: lavenderImg,
+
+    color: "blue",
+
+    rating: 5,
+
+    reviews: 27,
+
+  },
+
+
+
+  {
+
+    id: 8,
+
+    name: "Midnight Oud",
+
+    category: "ATTAR & PERFUME",
+
+    description: "A bold and sophisticated scent with deep woody notes.",
+
+    image: lavenderImg,
+
+    color: "blue",
+
+    rating: 5,
+
+    reviews: 27,
+
+  },
+
+
+
+
+
 ];
  
 const FeaturedProducts = ({

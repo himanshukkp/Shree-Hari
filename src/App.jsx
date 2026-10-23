@@ -4,6 +4,7 @@ import Hero from './components/hero/Hero'
 import Categories from './components/categories/Categories'
 import Banner from './components/Banner/Banner'
 import FeaturedProducts from './components/Products/Products'
+import ScentedAgarbatti from './components/Agarbatti/Agarbatti'
 
 
 function App() {
@@ -15,8 +16,10 @@ function App() {
     <Categories></Categories>
     <Banner/>
     <FeaturedProducts></FeaturedProducts>
+    <ScentedAgarbatti></ScentedAgarbatti>
    
     <h6></h6>
+    
     
 
     </>

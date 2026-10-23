@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap');
+.section {
+    margin-top: 80px; --plum:#421d43; --ink:#321c16; --gold:#c58a35; width:100%; overflow:hidden; color:var(--ink); background:#f9edda; }
+.section * {box-sizing:border-box;}
+.showcase {display:grid;grid-template-columns:42% minmax(0,58%);min-height:650px;background:radial-gradient(circle at 22% 18%,#fff3d9 0%,transparent 40%),linear-gradient(105deg,#f4dbb7 0%,#f7e6cf 44%,#edcda8 100%);}
+.story {position:relative;isolation:isolate;min-width:0;padding:22px clamp(24px,5vw,90px) 235px;overflow:hidden;}
+.story::before {content:'';position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 0% 90%,#d69b56 0%,transparent 53%);opacity:.35;}
+.brand {height:135px;display:flex;align-items:center;justify-content:center;margin-bottom:7px;}
+.brand img {height:135px;max-width:190px;object-fit:contain;mix-blend-mode:multiply;}
+.eyebrow {display:flex;align-items:center;gap:12px;white-space:nowrap;letter-spacing:3px;font:600 clamp(9px,.8vw,13px) 'DM Sans',sans-serif;}
+.eyebrow span {width:28px;height:1px;background:var(--gold);flex-shrink:0;}
+.story h2 {font:500 clamp(43px,3.5vw,72px)/.98 'Cormorant Garamond',Georgia,serif;letter-spacing:-1.5px;margin:23px 0 18px;}
+.story p {font:400 clamp(14px,1.05vw,18px)/1.55 'DM Sans',sans-serif;max-width:485px;margin:0 0 25px;}
+.primaryCta {position:relative;z-index:2;display:inline-flex;gap:14px;align-items:center;padding:16px 28px;border-radius:40px;color:#fff3da;background:var(--plum);text-decoration:none;font:600 clamp(15px,1.25vw,20px) 'Cormorant Garamond',Georgia,serif;transition:transform .2s,background .2s;}
+.primaryCta:hover {transform:translateY(-3px);background:#5b295c;}
+.scene {position:absolute;bottom:0;left:0;width:100%;height:220px;object-fit:cover;object-position:center bottom;z-index:-1;mask-image:linear-gradient(to bottom,transparent 0%,black 25%);}
+.collection {min-width:0;padding:48px clamp(18px,2.5vw,44px) 30px 12px;}
+.collectionTop {display:flex;justify-content:flex-end;align-items:center;height:60px;margin-bottom:24px;}
+.collectionTop a {font:700 11px 'DM Sans',sans-serif;letter-spacing:2.2px;color:#3b2232;text-decoration:none;border-bottom:1px solid #c69a5c;padding-bottom:8px;display:flex;align-items:center;gap:15px;}
+.collectionTop a span {display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--gold);color:white;font-size:25px;letter-spacing:0;}
+.productGrid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;align-items:stretch;}
+.card {min-width:0;overflow:hidden;border-radius:110px 110px 12px 12px;background:linear-gradient(#fff3e1,#f7dfc0);box-shadow:0 6px 15px #71461b1a;display:flex;flex-direction:column;}
+.arch {aspect-ratio: .66;overflow:hidden;clip-path:polygon(0 22%,5% 16%,50% 0,95% 16%,100% 22%,100% 100%,0 100%);background:#b7824b;}
+.arch img {display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.card:hover .arch img {transform:scale(1.045);}
+.cardBody {display:flex;flex:1;flex-direction:column;align-items:center;text-align:center;padding:12px 9px 16px;}
+.cardBody h3 {font:600 clamp(20px,1.5vw,28px)/1 'Cormorant Garamond',Georgia,serif;margin:0;}
+.subtitle {font:500 clamp(12px,.8vw,15px) 'Cormorant Garamond',Georgia,serif;}
+.cardBody p {font:400 clamp(11px,.78vw,14px)/1.35 'Cormorant Garamond',Georgia,serif;max-width:160px;min-height:40px;margin:12px 0 7px;}
+.price {font:700 clamp(18px,1.3vw,24px) 'Cormorant Garamond',Georgia,serif;margin-top:auto;margin-bottom:8px;}
+.cardBody button {width:100%;border:0;border-radius:25px;background:var(--plum);color:#fff3d9;cursor:pointer;padding:10px 4px;font:600 clamp(12px,1vw,17px) 'Cormorant Garamond',Georgia,serif;transition:background .2s;}
+.cardBody button:hover {background:#642b63;}
+.benefits {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:32px clamp(20px,5vw,85px);background:#fbefdf;gap:18px;}
+.benefit {display:flex;align-items:center;justify-content:center;gap:16px;min-width:0;border-right:1px solid #e6c7a0;padding:0 12px;}
+.benefit:last-child {border-right:0;}
+.benefitIcon {width:66px;height:66px;flex:0 0 66px;border:1px solid #e8c99f;border-radius:50%;display:grid;place-items:center;background:#f3dfc7;color:#704321;font-size:32px;}
+.benefit strong {display:block;font:600 clamp(17px,1.3vw,23px)/1.1 'Cormorant Garamond',Georgia,serif;}
+.benefit small {display:block;margin-top:5px;font:400 12px/1.3 'DM Sans',sans-serif;color:#715b49;}
+@media(max-width:1250px){.showcase{grid-template-columns:38% 62%;}.story{padding-left:28px;padding-right:20px;}.productGrid{gap:9px;}.collection{padding-right:18px;}.cardBody{padding-left:5px;padding-right:5px;}.benefitIcon{width:48px;height:48px;flex-basis:48px;font-size:25px;}}
+@media(max-width:950px){.showcase{grid-template-columns:1fr;}.story{min-height:460px;padding:20px 6% 175px;}.brand{justify-content:flex-start;height:95px;}.brand img{height:95px;}.story h2{font-size:clamp(48px,7vw,72px);}.scene{width:55%;height:260px;left:auto;right:0;mask-image:linear-gradient(to right,transparent,black 25%);}.collection{padding:10px 5% 40px;}.collectionTop{margin-bottom:12px;}.benefits{grid-template-columns:repeat(2,1fr);}.benefit:nth-child(2){border-right:0;}}
+@media(max-width:600px){.story{min-height:470px;padding:18px 22px 160px;}.brand{height:85px;justify-content:center;}.brand img{height:85px;}.eyebrow{letter-spacing:1.3px;font-size:9px;gap:7px;}.eyebrow span{width:14px;}.story h2{font-size:48px;}.story p{font-size:13px;max-width:340px;}.primaryCta{padding:13px 20px;font-size:16px;}.scene{width:100%;height:170px;mask-image:linear-gradient(to bottom,transparent,black 25%);}.collection{padding:0 14px 25px;}.collectionTop{height:56px;}.collectionTop a{font-size:9px;letter-spacing:1px;}.collectionTop a span{height:31px;width:31px;}.productGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}.arch{aspect-ratio:.82;}.cardBody h3{font-size:26px;}.subtitle{font-size:15px;}.cardBody p{font-size:14px;}.price{font-size:22px;}.cardBody button{font-size:16px;}.benefits{padding:25px 14px;gap:18px 8px;}.benefit{padding:0 4px;gap:8px;justify-content:flex-start;}.benefitIcon{width:38px;height:38px;flex-basis:38px;font-size:22px;}.benefit strong{font-size:16px;}.benefit small{font-size:10px;}}
