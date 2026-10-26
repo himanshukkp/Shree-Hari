@@ -1,22 +1,1353 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
-.footer{position:relative;isolation:isolate;overflow:hidden;color:#f9e8d3;background:radial-gradient(ellipse at 10% 25%,#54251b 0%,transparent 34%),radial-gradient(ellipse at 95% 60%,#401611 0%,transparent 37%),linear-gradient(115deg,#2b100e 0%,#3b1512 48%,#270e0c 100%);font-family:'DM Sans',sans-serif;}
-.footer::before{content:'';position:absolute;inset:0;z-index:-1;opacity:.16;background-image:repeating-linear-gradient(105deg,transparent 0 88px,rgba(218,149,73,.09) 89px 90px);pointer-events:none}
-.content{max-width:1760px;margin:auto;position:relative;z-index:2;padding:90px 5.2% 0}
-.leftArt,.rightArt{position:absolute;z-index:0;pointer-events:none;opacity:.62;object-fit:cover;filter:saturate(.92)}
-.leftArt{left:0;top:0;width:clamp(85px,12vw,210px);height:620px;object-position:left top;mask-image:linear-gradient(to right,#000 30%,transparent 100%)}
-.rightArt{right:0;top:0;width:clamp(80px,12vw,210px);height:620px;object-position:right top;mask-image:linear-gradient(to left,#000 30%,transparent 100%)}
-.glow{position:absolute;left:0;bottom:95px;width:100%;height:90px;background:linear-gradient(0deg,rgba(192,116,40,.11),transparent);pointer-events:none}
-.mainGrid{display:grid;grid-template-columns:minmax(245px,1.48fr) minmax(130px,.86fr) minmax(140px,.92fr) minmax(130px,.85fr) minmax(225px,1.2fr);gap:clamp(20px,2.7vw,52px);padding-bottom:105px}
-.brand{text-align:center;padding:0 8px;min-width:0}.logoLink{display:inline-block}.logo{width:190px;max-width:80%;height:155px;object-fit:contain;filter:drop-shadow(0 1px 8px rgba(230,170,70,.12))}
-.brandRule{display:block;color:#e7af60;margin:0 auto 17px;font-size:24px;line-height:1}.brand h2{font-family:'Cormorant Garamond',serif;font-size:clamp(29px,2.25vw,42px);font-weight:600;line-height:1.08;color:#f2c681;margin:0 0 34px}
-.brandValues{display:flex;justify-content:center;gap:0}.brandValues span{display:flex;flex:1;flex-direction:column;align-items:center;gap:8px;font-size:11px;line-height:1.5;color:#f4d9ba;border-right:1px solid rgba(215,155,86,.4)}.brandValues span:last-child{border:0}.brandValues svg{color:#d8a050}
-.linkColumn h3,.newsletter h3{font-family:'Cormorant Garamond',serif;font-size:clamp(23px,1.55vw,29px);font-weight:600;line-height:1.05;color:#f5ca88;margin:12px 0 19px}.goldRule{display:block;width:100px;height:1px;background:linear-gradient(90deg,#ad713a,#e0b36c,#ad713a);position:relative;margin-bottom:26px}.goldRule::after{content:'◇';position:absolute;left:48%;top:-11px;color:#e7b66e;background:#3a1712;font-size:13px;padding:0 4px}
-.linkColumn ul{list-style:none;padding:0;margin:0}.linkColumn li+li{margin-top:20px}.linkColumn a{display:flex;justify-content:space-between;align-items:center;gap:8px;text-decoration:none;color:#f0ded2;font-size:13px;line-height:1.3;transition:color .2s,transform .2s}.linkColumn a svg{color:#d8a052;flex:none}.linkColumn a:hover{color:#f5c67c;transform:translateX(3px)}
-.newsletter{border-left:1px solid rgba(218,153,82,.38);padding-left:clamp(20px,2.3vw,42px)}.newsletter p{font-size:13px;line-height:1.8;color:#d6bcb0;margin:0 0 24px}.subscribeForm{height:49px;border:1px solid #aa713d;border-radius:28px;display:flex;overflow:hidden;background:rgba(255,245,220,.03)}.subscribeForm input{flex:1;width:1px;min-width:0;border:0;outline:0;color:#fff;background:transparent;padding:0 15px;font:12px 'DM Sans',sans-serif}.subscribeForm input::placeholder{color:#c6aca0}.subscribeForm button{flex:0 0 48px;border:0;border-radius:50%;background:#d9a15a;color:#4b2317;cursor:pointer;display:grid;place-items:center;transition:background .2s}.subscribeForm button:hover{background:#f3c787}.newsletter .formMessage{font-size:12px;margin-top:10px}.socialArea{margin-top:45px}.socialArea h4{font:600 24px 'Cormorant Garamond',serif;color:#f4c781;margin:0 0 14px}.socialIcons{display:flex;gap:12px;flex-wrap:wrap}.socialIcons a{display:grid;place-items:center;width:41px;height:41px;border:1px solid #b88651;border-radius:50%;color:#f9e5c9;text-decoration:none;transition:background .2s,transform .2s}.socialIcons a:hover{background:#8e572f;transform:translateY(-3px)}
-.benefits{border-top:1px solid rgba(215,151,79,.55);border-bottom:1px solid rgba(215,151,79,.55);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 0;gap:0;position:relative}.benefit{display:flex;align-items:center;justify-content:center;gap:14px;padding:6px 18px;border-right:1px solid rgba(219,155,91,.4)}.benefit:last-child{border:0}.benefitIcon{display:grid;place-items:center;width:54px;height:54px;flex:none;border:1px solid #c08b49;border-radius:50%;color:#e5ad63}.benefit strong{display:block;font:600 19px 'Cormorant Garamond',serif;color:#f4dfc1;line-height:1.2}.benefit small{display:block;color:#d4a776;font-size:11px;margin-top:5px;line-height:1.5}
-.bottom{min-height:100px;display:flex;justify-content:space-between;align-items:center;gap:18px}.bottom p{font-size:12px;color:#e0c5b6}.payments{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.payments span{font-size:12px;color:#e0c5b6;margin-right:7px}.payments b{font-size:12px;color:#2f1410;background:#f1d8b4;padding:6px 9px;border-radius:4px}
-.srOnly{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-@media(max-width:1250px){.content{padding:65px 4% 0}.mainGrid{grid-template-columns:1.2fr repeat(3,1fr);gap:30px}.newsletter{grid-column:2/-1;border-left:0;border-top:1px solid rgba(218,153,82,.3);padding:25px 0 0}.brand{grid-row:span 2}.benefits{grid-template-columns:repeat(3,1fr);row-gap:18px}.benefit:nth-child(3){border:0}}
-@media(max-width:760px){.content{padding:45px 22px 0}.mainGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 20px;padding-bottom:55px}.brand{grid-column:1/-1;grid-row:auto;max-width:350px;margin:auto}.logo{height:140px}.brand h2{font-size:37px}.newsletter{grid-column:1/-1;padding:25px 0 0}.linkColumn h3,.newsletter h3{font-size:25px}.linkColumn a{font-size:12px}.linkColumn li+li{margin-top:15px}.benefits{grid-template-columns:repeat(2,1fr);gap:18px 0}.benefit{justify-content:flex-start;padding:5px 8px}.benefit:nth-child(2n){border:0}.benefit:nth-child(3){border-right:1px solid rgba(219,155,91,.4)}.benefitIcon{width:43px;height:43px}.benefit strong{font-size:17px}.bottom{padding:23px 0;flex-direction:column;text-align:center;gap:12px}.bottom p{margin:0}.leftArt,.rightArt{opacity:.24}}
-@media(max-width:420px){.content{padding-left:15px;padding-right:15px}.mainGrid{gap:27px 14px}.brandValues span{font-size:10px}.linkColumn h3{font-size:23px}.goldRule{width:80px}.benefit{gap:8px}.benefitIcon{width:37px;height:37px}.benefitIcon svg{width:19px}.benefit strong{font-size:15px}.benefit small{font-size:10px}}
-@media(prefers-reduced-motion:reduce){.footer *{transition:none!important}}
+
+ 
+/* =========================================
+
+   SHREE HARI LUXURY FOOTER
+
+========================================= */
+ 
+.footer {
+
+  --footer-bg: #2b1018;
+
+  --footer-bg-dark: #210b12;
+
+  --footer-gold: #d6ae68;
+
+  --footer-gold-light: #efd49d;
+
+  --footer-cream: #f5e8d7;
+
+  --footer-muted: #c9afa9;
+
+  --footer-border: rgba(214, 174, 104, 0.25);
+ 
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background:
+
+    radial-gradient(
+
+      ellipse at 50% 0%,
+
+      rgba(130, 70, 53, 0.2),
+
+      transparent 55%
+
+    ),
+
+    linear-gradient(
+
+      135deg,
+
+      #35151f 0%,
+
+      #2b1018 50%,
+
+      #210b12 100%
+
+    );
+
+  color: var(--footer-cream);
+
+  font-family: "DM Sans", sans-serif;
+
+}
+ 
+.footer * {
+
+  box-sizing: border-box;
+
+}
+ 
+.footer a {
+
+  text-decoration: none;
+
+}
+ 
+.footer button,
+
+.footer input {
+
+  font-family: inherit;
+
+}
+ 
+.footer button {
+
+  cursor: pointer;
+
+}
+ 
+/* =========================================
+
+   DECORATIVE ORNAMENTS
+
+========================================= */
+ 
+.leftOrnament {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 270px;
+
+  max-width: 30%;
+
+  height: auto;
+
+  opacity: 0.32;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+ 
+.rightOrnament {
+
+  position: absolute;
+
+  top: 0;
+
+  right: 0;
+
+  width: 290px;
+
+  max-width: 30%;
+
+  height: auto;
+
+  opacity: 0.3;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+ 
+/* =========================================
+
+   MAIN FOOTER CONTAINER
+
+========================================= */
+ 
+.footerMain {
+
+  position: relative;
+
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+
+    minmax(230px, 1.05fr)
+
+    minmax(0, 2.2fr)
+
+    minmax(240px, 1fr);
+
+  align-items: start;
+
+  gap: 45px;
+
+  width: 100%;
+
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  padding: 85px 5% 75px;
+
+}
+ 
+/* =========================================
+
+   BRAND SECTION
+
+========================================= */
+ 
+.brandSection {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  min-width: 0;
+
+}
+ 
+.logoLink {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  max-width: 100%;
+
+}
+ 
+.brandLogo {
+
+  display: block;
+
+  width: 205px;
+
+  max-width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+}
+ 
+.brandDivider {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  width: 190px;
+
+  max-width: 100%;
+
+  margin-top: 25px;
+
+  color: var(--footer-gold);
+
+}
+ 
+.brandDivider span {
+
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--footer-gold);
+
+  opacity: 0.65;
+
+}
+ 
+.brandTagline {
+
+  margin: 25px 0 24px;
+
+  color: var(--footer-gold-light);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(28px, 2.5vw, 38px);
+
+  font-weight: 600;
+
+  line-height: 1.12;
+
+  letter-spacing: 0.2px;
+
+}
+ 
+.brandHighlights {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  width: 100%;
+
+}
+ 
+.brandHighlights > div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  color: var(--footer-cream);
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.2px;
+
+}
+ 
+.brandHighlights svg {
+
+  flex-shrink: 0;
+
+  color: var(--footer-gold);
+
+  stroke-width: 1.4;
+
+}
+ 
+.brandStillLife {
+
+  display: block;
+
+  width: 100%;
+
+  max-width: 270px;
+
+  height: auto;
+
+  margin-top: 30px;
+
+  border-radius: 12px;
+
+  object-fit: cover;
+
+  filter: drop-shadow(
+
+    0 14px 25px rgba(0, 0, 0, 0.28)
+
+  );
+
+}
+ 
+/* =========================================
+
+   FOOTER NAVIGATION
+
+========================================= */
+ 
+.footerNavigation {
+
+  display: grid;
+
+  grid-template-columns:
+
+    minmax(0, 1.2fr)
+
+    minmax(0, 1fr)
+
+    minmax(0, 0.9fr);
+
+  gap: 28px;
+
+  min-width: 0;
+
+  padding-top: 12px;
+
+}
+ 
+.footerColumn {
+
+  min-width: 0;
+
+}
+ 
+.footerColumn h3,
+
+.newsletterSection h3 {
+
+  margin: 0;
+
+  color: var(--footer-gold-light);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+}
+ 
+.headingLine {
+
+  width: 48px;
+
+  height: 2px;
+
+  margin-top: 17px;
+
+  margin-bottom: 26px;
+
+  background: linear-gradient(
+
+    90deg,
+
+    var(--footer-gold),
+
+    rgba(214, 174, 104, 0.15)
+
+  );
+
+}
+ 
+.footerColumn ul {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 17px;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+}
+ 
+.footerColumn li {
+
+  margin: 0;
+
+  padding: 0;
+
+}
+ 
+.footerColumn li a {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  width: 100%;
+
+  color: var(--footer-muted);
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  transition:
+
+    color 0.3s ease,
+
+    transform 0.3s ease;
+
+}
+ 
+.footerColumn li a svg {
+
+  flex-shrink: 0;
+
+  width: 13px;
+
+  height: 13px;
+
+  color: var(--footer-gold);
+
+  opacity: 0;
+
+  transform: translateX(-6px);
+
+  transition:
+
+    opacity 0.3s ease,
+
+    transform 0.3s ease;
+
+}
+ 
+.footerColumn li a:hover {
+
+  color: var(--footer-gold-light);
+
+  transform: translateX(3px);
+
+}
+ 
+.footerColumn li a:hover svg {
+
+  opacity: 1;
+
+  transform: translateX(0);
+
+}
+ 
+/* =========================================
+
+   NEWSLETTER SECTION
+
+========================================= */
+ 
+.newsletterSection {
+
+  min-width: 0;
+
+  padding-top: 12px;
+
+}
+ 
+.newsletterSection h3 {
+
+  font-size: 28px;
+
+  line-height: 1.1;
+
+}
+ 
+.newsletterSection > p {
+
+  margin: 0 0 25px;
+
+  color: var(--footer-muted);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+}
+ 
+.newsletterForm {
+
+  display: flex;
+
+  align-items: stretch;
+
+  width: 100%;
+
+  height: 48px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--footer-border);
+
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  transition: border-color 0.3s ease;
+
+}
+ 
+.newsletterForm:focus-within {
+
+  border-color: var(--footer-gold);
+
+}
+ 
+.newsletterForm input {
+
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 0 14px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--footer-cream);
+
+  font-size: 12px;
+
+}
+ 
+.newsletterForm input::placeholder {
+
+  color: #c1a6a0;
+
+  opacity: 0.85;
+
+}
+ 
+.newsletterForm button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 49px;
+
+  height: 100%;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 0;
+
+  background: var(--footer-gold);
+
+  color: var(--footer-bg-dark);
+
+  transition:
+
+    background 0.3s ease,
+
+    color 0.3s ease;
+
+}
+ 
+.newsletterForm button:hover {
+
+  background: var(--footer-gold-light);
+
+}
+ 
+.newsletterForm button:disabled {
+
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+}
+ 
+.newsletterSection > p[role="status"] {
+
+  margin: 12px 0 0;
+
+  color: var(--footer-gold-light);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+}
+ 
+/* =========================================
+
+   SOCIAL MEDIA
+
+========================================= */
+ 
+.followTitle {
+
+  margin: 35px 0 18px;
+
+  color: var(--footer-gold-light);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 23px;
+
+  font-weight: 600;
+
+}
+ 
+.socialIcons {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+}
+ 
+.socialIcons a {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 1px solid rgba(214, 174, 104, 0.4);
+
+  border-radius: 50%;
+
+  background: rgba(214, 174, 104, 0.05);
+
+  color: var(--footer-gold-light);
+
+  transition:
+
+    background 0.3s ease,
+
+    border-color 0.3s ease,
+
+    color 0.3s ease,
+
+    transform 0.3s ease;
+
+}
+ 
+.socialIcons a:hover {
+
+  transform: translateY(-4px);
+
+  border-color: var(--footer-gold);
+
+  background: var(--footer-gold);
+
+  color: var(--footer-bg-dark);
+
+}
+ 
+.socialIcons svg {
+
+  width: 17px;
+
+  height: 17px;
+
+}
+ 
+/* =========================================
+
+   SERVICE BENEFITS STRIP
+
+========================================= */
+ 
+.footerBenefits {
+
+  position: relative;
+
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 20px;
+
+  padding: 29px 5%;
+
+  border-top: 1px solid var(--footer-border);
+
+  border-bottom: 1px solid var(--footer-border);
+
+  background: rgba(12, 4, 7, 0.22);
+
+}
+ 
+.benefitItem {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 13px;
+
+  min-width: 0;
+
+}
+ 
+.benefitIcon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 43px;
+
+  height: 43px;
+
+  color: var(--footer-gold);
+
+}
+ 
+.benefitText {
+
+  min-width: 0;
+
+}
+ 
+.benefitText h4 {
+
+  margin: 0 0 5px;
+
+  color: var(--footer-gold-light);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  font-weight: 600;
+
+  line-height: 1.1;
+
+}
+ 
+.benefitText p {
+
+  margin: 0;
+
+  color: var(--footer-muted);
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+}
+ 
+/* =========================================
+
+   BOTTOM COPYRIGHT SECTION
+
+========================================= */
+ 
+.footerBottom {
+
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 25px;
+
+  width: 100%;
+
+  padding: 25px 5%;
+
+  background: rgba(12, 4, 7, 0.28);
+
+}
+ 
+.footerBottom > p {
+
+  margin: 0;
+
+  color: var(--footer-muted);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+}
+ 
+.paymentMethods {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+}
+ 
+.paymentMethods > span {
+
+  color: var(--footer-muted);
+
+  font-size: 12px;
+
+  white-space: nowrap;
+
+}
+ 
+.paymentIcons {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+}
+ 
+.paymentIcons span {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 49px;
+
+  min-height: 27px;
+
+  padding: 5px 9px;
+
+  border: 1px solid rgba(214, 174, 104, 0.3);
+
+  border-radius: 4px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  color: var(--footer-cream);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+}
+ 
+/* =========================================
+
+   LARGE TABLETS / SMALL LAPTOPS
+
+========================================= */
+ 
+@media (max-width: 1250px) {
+
+  .footerMain {
+
+    grid-template-columns:
+
+      minmax(210px, 0.85fr)
+
+      minmax(0, 2fr);
+
+    gap: 45px;
+
+    padding: 70px 5%;
+
+  }
+ 
+  .footerNavigation {
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+  }
+ 
+  .newsletterSection {
+
+    grid-column: 1 / -1;
+
+    max-width: 550px;
+
+    padding-top: 0;
+
+  }
+ 
+  .footerBenefits {
+
+    gap: 15px;
+
+  }
+ 
+  .benefitItem {
+
+    gap: 8px;
+
+  }
+ 
+  .benefitText h4 {
+
+    font-size: 17px;
+
+  }
+
+}
+ 
+/* =========================================
+
+   TABLET RESPONSIVE
+
+========================================= */
+ 
+@media (max-width: 900px) {
+
+  .footerMain {
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px 35px;
+
+    padding: 65px 5%;
+
+  }
+ 
+  .brandSection {
+
+    grid-column: 1;
+
+  }
+ 
+  .footerNavigation {
+
+    grid-column: 2;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 35px 20px;
+
+  }
+ 
+  .newsletterSection {
+
+    grid-column: 1 / -1;
+
+    max-width: 520px;
+
+  }
+ 
+  .footerBenefits {
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+  }
+ 
+  .benefitItem {
+
+    justify-content: flex-start;
+
+  }
+ 
+  .leftOrnament,
+
+  .rightOrnament {
+
+    width: 200px;
+
+  }
+
+}
+ 
+/* =========================================
+
+   MOBILE RESPONSIVE
+
+========================================= */
+ 
+@media (max-width: 600px) {
+
+  .footerMain {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 42px;
+
+    padding: 55px 22px 50px;
+
+  }
+ 
+  .brandSection {
+
+    align-items: center;
+
+    width: 100%;
+
+    text-align: center;
+
+  }
+ 
+  .brandLogo {
+
+    width: 190px;
+
+  }
+ 
+  .brandDivider {
+
+    width: 170px;
+
+    margin-top: 20px;
+
+  }
+ 
+  .brandTagline {
+
+    margin: 22px 0;
+
+    font-size: 34px;
+
+  }
+ 
+  .brandHighlights {
+
+    align-items: center;
+
+    gap: 13px;
+
+  }
+ 
+  .brandHighlights > div {
+
+    justify-content: center;
+
+  }
+ 
+  .brandStillLife {
+
+    width: 220px;
+
+    margin-top: 28px;
+
+  }
+ 
+  .footerNavigation {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 38px 20px;
+
+    width: 100%;
+
+  }
+ 
+  .footerColumn h3 {
+
+    font-size: 23px;
+
+  }
+ 
+  .footerColumn ul {
+
+    gap: 14px;
+
+  }
+ 
+  .footerColumn li a {
+
+    font-size: 12px;
+
+  }
+ 
+  .newsletterSection {
+
+    width: 100%;
+
+    max-width: none;
+
+  }
+ 
+  .newsletterSection h3 {
+
+    font-size: 30px;
+
+  }
+ 
+  .newsletterForm {
+
+    height: 49px;
+
+  }
+ 
+  .footerBenefits {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px 15px;
+
+    padding: 35px 22px;
+
+  }
+ 
+  .benefitItem {
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+  }
+ 
+  .benefitIcon {
+
+    width: 30px;
+
+    height: 30px;
+
+  }
+ 
+  .benefitIcon svg {
+
+    width: 23px;
+
+    height: 23px;
+
+  }
+ 
+  .benefitText h4 {
+
+    font-size: 17px;
+
+  }
+ 
+  .benefitText p {
+
+    font-size: 10px;
+
+  }
+ 
+  .footerBottom {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 28px 22px;
+
+    text-align: center;
+
+  }
+ 
+  .paymentMethods {
+
+    justify-content: center;
+
+  }
+ 
+  .leftOrnament {
+
+    width: 160px;
+
+    opacity: 0.2;
+
+  }
+ 
+  .rightOrnament {
+
+    width: 160px;
+
+    opacity: 0.2;
+
+  }
+
+}
+ 
+/* =========================================
+
+   SMALL MOBILE DEVICES
+
+========================================= */
+ 
+@media (max-width: 380px) {
+
+  .footerMain {
+
+    padding-right: 16px;
+
+    padding-left: 16px;
+
+  }
+ 
+  .footerNavigation {
+
+    column-gap: 14px;
+
+  }
+ 
+  .footerColumn h3 {
+
+    font-size: 21px;
+
+  }
+ 
+  .footerColumn li a {
+
+    font-size: 11px;
+
+  }
+ 
+  .footerBenefits {
+
+    padding-right: 16px;
+
+    padding-left: 16px;
+
+  }
+ 
+  .benefitText h4 {
+
+    font-size: 15px;
+
+  }
+ 
+  .paymentIcons span {
+
+    min-width: 43px;
+
+    padding: 5px 6px;
+
+    font-size: 9px;
+
+  }
+
+}
+ 
+/* =========================================
+
+   ACCESSIBILITY
+
+========================================= */
+ 
+.footer a:focus-visible,
+
+.footer button:focus-visible,
+
+.footer input:focus-visible {
+
+  outline: 2px solid var(--footer-gold-light);
+
+  outline-offset: 4px;
+
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+
+  .footer *,
+
+  .footer *::before,
+
+  .footer *::after {
+
+    scroll-behavior: auto;
+
+    transition-duration: 0.01ms;
+
+    animation-duration: 0.01ms;
+
+  }
+
+}
+
+ 
