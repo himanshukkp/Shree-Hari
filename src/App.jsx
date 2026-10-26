@@ -5,6 +5,7 @@ import Categories from './components/categories/Categories'
 import Banner from './components/Banner/Banner'
 import FeaturedProducts from './components/Products/Products'
 import ScentedAgarbatti from './components/Agarbatti/Agarbatti'
+import ShreeHariFooter from './components/Footer/Footer'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <Banner/>
     <FeaturedProducts></FeaturedProducts>
     <ScentedAgarbatti></ScentedAgarbatti>
+    <ShreeHariFooter></ShreeHariFooter>
    
     <h6></h6>
     
