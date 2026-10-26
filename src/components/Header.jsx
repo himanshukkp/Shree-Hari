@@ -1,13 +1,14 @@
 import React from 'react'
 import logo from "../assets/logo.png"
 import styles from './Header.module.css'
-// import {
-//   Search,
-//   UserRound,
-//   Heart,
-//   ShoppingBag,
-//   Menu,
-// } from "lucide-react";
+
+ import {
+   Search,
+   UserRound,
+   Heart,
+  ShoppingBag,
+  Menu,
+} from "lucide-react";
  
 
 
@@ -34,24 +35,24 @@ function Header() {
 <div className={styles.actions}>
  
           <button className={styles.iconButton} aria-label="Search">
-{/* <Search size={19} strokeWidth={1.5} /> */}
+<Search size={19} strokeWidth={1.5} />
 </button>
  
           <button className={styles.iconButton} aria-label="Account">
-{/* <UserRound size={19} strokeWidth={1.5} /> */}
+<UserRound size={19} strokeWidth={1.5} />
 </button>
  
           <button className={styles.iconButton} aria-label="Wishlist">
-{/* <Heart size={19} strokeWidth={1.5} /> */}
+<Heart size={19} strokeWidth={1.5} />
 </button>
  
           <button className={styles.cartButton} aria-label="Shopping bag">
-{/* <ShoppingBag size={20} strokeWidth={1.5} /> */}
+<ShoppingBag size={20} strokeWidth={1.5} />
 <span className={styles.cartCount}>2</span>
 </button>
  
           <button className={styles.menuButton} aria-label="Menu">
-{/* <Menu size={22} strokeWidth={1.5} /> */}
+<Menu size={22} strokeWidth={1.5} />
 </button>
  
         </div>
