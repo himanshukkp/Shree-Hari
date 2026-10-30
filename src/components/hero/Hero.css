@@ -30,12 +30,13 @@
 }
 
 .hero h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(52px, 6vw, 88px);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -2px;
-  margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -2px;
+    margin: 0;
+    color: gray;
 }
 
 .hero h1 span {

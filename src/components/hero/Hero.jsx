@@ -1,6 +1,7 @@
 
 import React from "react";
 import "./Hero.css";
+import { Link } from "react-router-dom";
 
 function Hero() {
     
@@ -27,9 +28,10 @@ function Hero() {
         </p>
 
         <div className="hero-buttons">
-          <a href="#shop" className="btn-primary">
+          <Link to ='/products'> <a href="#shop" className="btn-primary">
             Shop Collection <span>↗</span>
           </a>
+          </Link>
 
           <a href="#about" className="btn-secondary">
             Discover More

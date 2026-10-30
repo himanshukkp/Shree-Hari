@@ -21,31 +21,36 @@ import {
   Flower2,
 
 } from "lucide-react";
+import featuredBg from '../../assets/featured-bg.png'
  
  
-import greenImg from "../../assets/green.webp";
+import godfather from "../../assets/god_father.webp";
 
-import amberImg from "../../assets/amber.webp";
+import gucci from "../../assets/gucci_flora.webp";
 
-import purpleImg from "../../assets/purple.webp";
+import afgano from "../../assets/black_afgano.webp";
 
-import lavenderImg from "../../assets/lavender.webp";
+import channel from "../../assets/blue_de_channel.webp";
 
-import featuredBg from "../../assets/featured-bg.png";
+import bombshell from "../../assets/bomshell.webp";
+
+import br540 from "../../assets/br_540.webp";
  
 const featuredProducts = [
+
+
 
   {
 
     id: 1,
 
-    name: "Emerald",
+    name: "GODFATHER",
 
     category: "ATTAR & PERFUME",
 
     description: "A refreshing blend with floral notes and a hint of oud.",
 
-    image: greenImg,
+    image: godfather,
 
     color: "green",
 
@@ -59,13 +64,13 @@ const featuredProducts = [
 
     id: 2,
 
-    name: "Golden Aura",
+    name: "GUCCI FLORA",
 
     category: "ATTAR & PERFUME",
 
     description: "A rich and warm fragrance with exotic amber notes.",
 
-    image: amberImg,
+    image: gucci,
 
     color: "amber",
 
@@ -79,13 +84,13 @@ const featuredProducts = [
 
     id: 3,
 
-    name: "Royal Bloom",
+    name: "BLACK AFGANO",
 
     category: "ATTAR & PERFUME",
 
     description: "A long-lasting, elegant fragrance for special moments.",
 
-    image: purpleImg,
+    image: afgano,
 
     color: "purple",
 
@@ -99,13 +104,13 @@ const featuredProducts = [
 
     id: 4,
 
-    name: "Midnight Oud",
+    name: "BLUE-DE-CHANNEL",
 
     category: "ATTAR & PERFUME",
 
     description: "A bold and sophisticated scent with deep woody notes.",
 
-    image: lavenderImg,
+    image: channel,
 
     color: "blue",
 
@@ -119,13 +124,13 @@ const featuredProducts = [
 
     id: 5,
 
-    name: "Midnight Oud",
+    name: "BOMBSHELL",
 
     category: "ATTAR & PERFUME",
 
     description: "A bold and sophisticated scent with deep woody notes.",
 
-    image: lavenderImg,
+    image: bombshell,
 
     color: "blue",
 
@@ -140,34 +145,13 @@ const featuredProducts = [
 
     id: 6,
 
-    name: "Midnight Oud",
+    name: "BR.540",
 
     category: "ATTAR & PERFUME",
 
     description: "A bold and sophisticated scent with deep woody notes.",
 
-    image: lavenderImg,
-
-    color: "blue",
-
-    rating: 5,
-
-    reviews: 27,
-
-  },
-
-
-  {
-
-    id: 7,
-
-    name: "Midnight Oud",
-
-    category: "ATTAR & PERFUME",
-
-    description: "A bold and sophisticated scent with deep woody notes.",
-
-    image: lavenderImg,
+    image: br540,
 
     color: "blue",
 
@@ -179,28 +163,8 @@ const featuredProducts = [
 
 
 
-  {
 
-    id: 8,
-
-    name: "Midnight Oud",
-
-    category: "ATTAR & PERFUME",
-
-    description: "A bold and sophisticated scent with deep woody notes.",
-
-    image: lavenderImg,
-
-    color: "blue",
-
-    rating: 5,
-
-    reviews: 27,
-
-  },
-
-
-
+  
 
 
 ];

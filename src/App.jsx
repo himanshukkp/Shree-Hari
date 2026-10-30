@@ -1,11 +1,11 @@
 import Header from './components/Header'
 import './App.css'
-import Hero from './components/hero/Hero'
-import Categories from './components/categories/Categories'
-import Banner from './components/Banner/Banner'
-import FeaturedProducts from './components/Products/Products'
-import ScentedAgarbatti from './components/Agarbatti/Agarbatti'
+
 import ShreeHariFooter from './components/Footer/Footer'
+import ShreeHariCart from './components/Cart/Cart'
+import AllProducts from './components/AllProducts/AllProducts'
+import { Route,Routes } from 'react-router-dom'
+import Home from './components/pages/Home/Home'
 
 
 function App() {
@@ -13,14 +13,18 @@ function App() {
   return (
     <>
       <Header/>
-      <Hero></Hero>
-    <Categories></Categories>
-    <Banner/>
-    <FeaturedProducts></FeaturedProducts>
-    <ScentedAgarbatti></ScentedAgarbatti>
-    <ShreeHariFooter></ShreeHariFooter>
+      
+      
    
-    <h6></h6>
+    <ShreeHariCart></ShreeHariCart>
+  
+   <Routes>
+    <Route path='/' element={<Home/>}></Route>
+    <Route path='/products' element={<AllProducts/>}></Route>
+   </Routes>
+
+    <ShreeHariFooter></ShreeHariFooter>
+    
     
     
 
