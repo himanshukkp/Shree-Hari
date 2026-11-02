@@ -17,6 +17,7 @@ import Home from "./components/pages/Home/Home";
 import Product from "./components/productpage/Productpage";
  
 import { useCart } from "./Context/CartContext";
+import ScrollToTop from "./ScrolltoTop";
  
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
  
   return (
 <>
+
+<ScrollToTop></ScrollToTop>
 <Header />
  
       <ShreeHariCart

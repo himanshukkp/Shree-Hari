@@ -1,174 +1,486 @@
-import React, { useEffect, useState } from "react";
-import { X, Minus, Plus, Trash2, Gift, TicketPercent, LockKeyhole, ArrowRight, ShoppingBag } from "lucide-react";
+
+
+import React, { useEffect } from "react";
+
+import {
+
+  X,
+
+  ShoppingBag,
+
+  Trash2,
+
+  Minus,
+
+  Plus,
+
+  Truck,
+
+  LockKeyhole,
+
+  ArrowRight,
+
+  ShoppingCart,
+
+} from "lucide-react";
+ 
 import styles from "./Cart.module.css";
+ 
+function ShreeHariCart({
 
-const money = (value) => `₹${Number(value || 0).toLocaleString("en-IN")}`;
-
-/**
- * Props:
- * open: boolean
- * onClose: () => void
- * items: [{ id, name, subtitle, image, price, mrp, quantity, badge, badgeTone }]
- * onQuantityChange: (id, nextQuantity) => void
- * onRemove: (id) => void
- * onCheckout: ({ giftWrap, giftWrapFee, couponCode, subtotal, total }) => void
- * onContinueShopping: () => void (optional)
- * onApplyCoupon: async (code, items) => { discount: number } (optional)
- * shippingFee: number (default 0)
- * giftWrapFee: number (default 99)
- */
-export default function ShreeHariCart({
   open = false,
+
   onClose = () => {},
+
   items = [],
+
   onQuantityChange = () => {},
+
   onRemove = () => {},
+
   onCheckout = () => {},
+
   onContinueShopping,
-  onApplyCoupon,
+
   shippingFee = 0,
-  giftWrapFee = 99,
+
 }) {
-  const [giftWrap, setGiftWrap] = useState(false);
-  const [couponInput, setCouponInput] = useState("");
-  const [appliedCoupon, setAppliedCoupon] = useState("");
-  const [discount, setDiscount] = useState(0);
-  const [couponMessage, setCouponMessage] = useState("");
-  const [applying, setApplying] = useState(false);
 
-  const count = items.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
-  const subtotal = items.reduce((sum, item) => sum + Number(item.price || 0) * Number(item.quantity || 0), 0);
-  const mrpTotal = items.reduce((sum, item) => sum + Number(item.mrp ?? item.price ?? 0) * Number(item.quantity || 0), 0);
-  const savings = Math.max(0, mrpTotal - subtotal);
-  const finalDiscount = Math.min(discount, subtotal);
-  const total = Math.max(0, subtotal - finalDiscount) + (count ? Number(shippingFee) : 0) + (giftWrap && count ? Number(giftWrapFee) : 0);
+  const formatPrice = (price) =>
 
-  useEffect(() => {
-    if (!open) return;
-    const oldOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKeyDown = (event) => {
-      if (event.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = oldOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [open, onClose]);
+    new Intl.NumberFormat("en-IN", {
 
-  // A coupon is never treated as valid unless the application validates it.
-  async function handleCoupon(event) {
-    event.preventDefault();
-    const code = couponInput.trim();
-    if (!code) return;
-    if (!onApplyCoupon) {
-      setCouponMessage("Coupon codes are not available yet.");
-      return;
-    }
-    setApplying(true);
-    setCouponMessage("");
-    try {
-      const result = await onApplyCoupon(code, items);
-      const amount = Number(result?.discount);
-      if (!Number.isFinite(amount) || amount < 0) throw new Error("Invalid coupon");
-      setDiscount(amount);
-      setAppliedCoupon(code);
-      setCouponMessage("Coupon applied successfully.");
-    } catch {
-      setDiscount(0);
-      setAppliedCoupon("");
-      setCouponMessage("Coupon could not be applied.");
-    } finally {
-      setApplying(false);
-    }
-  }
+      style: "currency",
 
-  return (
-    <div className={`${styles.root} ${open ? styles.open : ""}`} aria-hidden={!open}>
-      <button className={styles.backdrop} type="button" onClick={onClose} tabIndex={open ? 0 : -1} aria-label="Close shopping cart" />
-      <aside className={styles.drawer} role="dialog" aria-modal="true" aria-label="Shopping cart" inert={!open ? true : undefined}>
-        <header className={styles.header}>
-          <div>
-            <h2>Your Cart ({count})</h2>
-            <p>A collection of scents, curated for you.</p>
-            <div className={styles.flourish}><span />✦<span /></div>
-          </div>
-          <button type="button" className={styles.close} onClick={onClose} aria-label="Close cart"><X size={25} /></button>
-        </header>
+      currency: "INR",
 
-        <div className={styles.scrollArea}>
-          {items.length === 0 ? (
-            <div className={styles.empty}>
-              <ShoppingBag size={46} strokeWidth={1.2} />
-              <h3>Your fragrance journey begins here</h3>
-              <p>Your cart is waiting for something wonderful.</p>
-              <button type="button" onClick={onContinueShopping || onClose}>Explore fragrances <ArrowRight size={16} /></button>
-            </div>
-          ) : (
-            <>
-              <div className={styles.products}>
-                {items.map((item) => (
-                  <article className={styles.product} key={item.id}>
-                    <div className={styles.productImage}>
-                      {item.image ? <img src={item.image} alt={item.name} /> : <ShoppingBag size={32} />}
-                    </div>
-                    <div className={styles.productDetails}>
-                      <div className={styles.productTop}>
-                        <h3>{item.name}</h3>
-                        <button type="button" onClick={() => onRemove(item.id)} aria-label={`Remove ${item.name}`} className={styles.remove}><Trash2 size={18} /></button>
-                      </div>
-                      <p className={styles.subtitle}>{item.subtitle}</p>
-                      <div className={styles.priceRow}>
-                        <strong>{money(item.price)}</strong>
-                        {Number(item.mrp) > Number(item.price) && <del>{money(item.mrp)}</del>}
-                      </div>
-                      <div className={styles.productBottom}>
-                        {item.badge ? <span className={`${styles.badge} ${item.badgeTone === "rose" ? styles.rose : item.badgeTone === "sage" ? styles.sage : ""}`}>{item.badge}</span> : <span />}
-                        <div className={styles.quantity} aria-label={`Quantity for ${item.name}`}>
-                          <button type="button" onClick={() => onQuantityChange(item.id, Math.max(1, Number(item.quantity) - 1))} disabled={Number(item.quantity) <= 1} aria-label={`Decrease ${item.name} quantity`}><Minus size={14} /></button>
-                          <span>{item.quantity}</span>
-                          <button type="button" onClick={() => onQuantityChange(item.id, Number(item.quantity) + 1)} aria-label={`Increase ${item.name} quantity`}><Plus size={14} /></button>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
+      maximumFractionDigits: 0,
 
-              <label className={styles.giftRow}>
-                <span className={styles.giftIcon}><Gift size={27} strokeWidth={1.5} /></span>
-                <span className={styles.giftCopy}><strong>Add Gift Wrapping</strong><small>Make it special with our elegant packaging.</small></span>
-                <input type="checkbox" checked={giftWrap} onChange={(e) => setGiftWrap(e.target.checked)} />
-                <span className={styles.giftPrice}>{money(giftWrapFee)}</span>
-              </label>
+    }).format(price);
+ 
+  const cartCount = items.reduce(
 
-              <form className={styles.couponRow} onSubmit={handleCoupon}>
-                <TicketPercent size={22} />
-                <input value={couponInput} onChange={(e) => setCouponInput(e.target.value)} placeholder="Enter coupon code" aria-label="Coupon code" />
-                <button type="submit" disabled={applying}>{applying ? "Checking…" : "Apply"}</button>
-              </form>
-              {couponMessage && <p className={styles.couponMessage} role="status">{couponMessage}</p>}
-            </>
-          )}
-        </div>
+    (total, item) => total + (Number(item.quantity) || 0),
 
-        {items.length > 0 && (
-          <div className={styles.checkoutArea}>
-            <div className={styles.summaryLine}><span>Subtotal ({count} items)</span><strong>{money(mrpTotal)}</strong></div>
-            <div className={styles.summaryLine}><span>Product savings</span><strong className={styles.savings}>− {money(savings)}</strong></div>
-            {appliedCoupon && <div className={styles.summaryLine}><span>Coupon ({appliedCoupon})</span><strong className={styles.savings}>− {money(finalDiscount)}</strong></div>}
-            <div className={styles.summaryLine}><span>Shipping</span><strong>{shippingFee ? money(shippingFee) : "FREE"}</strong></div>
-            {giftWrap && <div className={styles.summaryLine}><span>Gift wrapping</span><strong>{money(giftWrapFee)}</strong></div>}
-            <div className={styles.summaryDivider} />
-            <div className={styles.total}><span>Estimated Total</span><strong>{money(total)}</strong></div>
-            <button className={styles.checkoutButton} type="button" onClick={() => onCheckout({ giftWrap, giftWrapFee: giftWrap ? giftWrapFee : 0, couponCode: appliedCoupon, subtotal, total })}>
-              <LockKeyhole size={17} /> Proceed to Checkout <ArrowRight size={18} />
-            </button>
-            <button className={styles.continueButton} type="button" onClick={onContinueShopping || onClose}>Continue Shopping</button>
-          </div>
-        )}
-      </aside>
-    </div>
+    0
+
   );
+ 
+  const subtotal = items.reduce(
+
+    (total, item) =>
+
+      total +
+
+      Number(item.price || 0) * Number(item.quantity || 0),
+
+    0
+
+  );
+ 
+  const mrpTotal = items.reduce(
+
+    (total, item) =>
+
+      total +
+
+      Number(item.mrp || item.price || 0) *
+
+        Number(item.quantity || 0),
+
+    0
+
+  );
+ 
+  const savings = Math.max(0, mrpTotal - subtotal);
+ 
+  const total = subtotal + Number(shippingFee || 0);
+ 
+  useEffect(() => {
+
+    if (!open) return;
+ 
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+ 
+    const handleEscape = (event) => {
+
+      if (event.key === "Escape") onClose();
+
+    };
+ 
+    window.addEventListener("keydown", handleEscape);
+ 
+    return () => {
+
+      document.body.style.overflow = previousOverflow;
+
+      window.removeEventListener("keydown", handleEscape);
+
+    };
+
+  }, [open, onClose]);
+ 
+  const handleContinueShopping = () => {
+
+    if (onContinueShopping) {
+
+      onContinueShopping();
+
+    } else {
+
+      onClose();
+
+    }
+
+  };
+ 
+  return (
+<>
+<div
+
+        className={`${styles.overlay} ${
+
+          open ? styles.overlayVisible : ""
+
+        }`}
+
+        onClick={onClose}
+
+        aria-hidden="true"
+
+      />
+ 
+      <aside
+
+        className={`${styles.cartDrawer} ${
+
+          open ? styles.cartOpen : ""
+
+        }`}
+
+        role="dialog"
+
+        aria-modal={open ? "true" : undefined}
+
+        aria-label="Shopping bag"
+
+        aria-hidden={!open}
+
+        inert={!open ? true : undefined}
+>
+
+        {/* Header */}
+<div className={styles.cartHeader}>
+<div className={styles.headerContent}>
+<div className={styles.headingRow}>
+<ShoppingBag
+
+                size={25}
+
+                strokeWidth={1.5}
+
+                className={styles.bagIcon}
+
+              />
+ 
+              <h2>
+
+                Your Bag <span>({cartCount})</span>
+</h2>
+</div>
+ 
+            <p>A collection of your selected fragrances</p>
+</div>
+ 
+          <button
+
+            type="button"
+
+            className={styles.closeButton}
+
+            onClick={onClose}
+
+            aria-label="Close cart"
+>
+<X size={23} strokeWidth={1.6} />
+</button>
+</div>
+ 
+        <div className={styles.goldDivider}>
+<span>✦</span>
+</div>
+ 
+        {/* Cart Content */}
+
+        {items.length === 0 ? (
+<div className={styles.emptyCart}>
+<div className={styles.emptyIcon}>
+<ShoppingBag size={47} strokeWidth={1.1} />
+</div>
+ 
+            <h3>Your bag is empty</h3>
+ 
+            <p>
+
+              Discover a fragrance that makes every moment
+
+              unforgettable.
+</p>
+ 
+            <button
+
+              type="button"
+
+              className={styles.emptyShopButton}
+
+              onClick={handleContinueShopping}
+>
+
+              Explore Fragrances
+<ArrowRight size={17} />
+</button>
+</div>
+
+        ) : (
+<>
+<div className={styles.cartBody}>
+
+              {/* Products */}
+<div className={styles.productsList}>
+
+                {items.map((item) => (
+<div className={styles.cartItem} key={item.id}>
+<div className={styles.productImage}>
+<img
+
+                        src={item.image}
+
+                        alt={item.name}
+
+                      />
+</div>
+ 
+                    <div className={styles.productDetails}>
+<div className={styles.productTop}>
+<div>
+<h3>{item.name}</h3>
+ 
+                          <p className={styles.productSubtitle}>
+
+                            {item.subtitle || "Eau de Parfum"}
+</p>
+ 
+                          {item.size && (
+<p className={styles.productSize}>
+
+                              {item.size}
+</p>
+
+                          )}
+</div>
+ 
+                        <button
+
+                          type="button"
+
+                          className={styles.removeButton}
+
+                          onClick={() => onRemove(item.id)}
+
+                          aria-label={`Remove ${item.name}`}
+>
+<Trash2 size={18} strokeWidth={1.6} />
+</button>
+</div>
+ 
+                      <div className={styles.productBottom}>
+<div className={styles.priceArea}>
+<span className={styles.salePrice}>
+
+                            {formatPrice(item.price)}
+</span>
+ 
+                          {Number(item.mrp) > Number(item.price) && (
+<span className={styles.mrp}>
+
+                              {formatPrice(item.mrp)}
+</span>
+
+                          )}
+</div>
+ 
+                        <div className={styles.quantityControl}>
+<button
+
+                            type="button"
+
+                            onClick={() => {
+
+                              if (item.quantity <= 1) {
+
+                                onRemove(item.id);
+
+                              } else {
+
+                                onQuantityChange(
+
+                                  item.id,
+
+                                  item.quantity - 1
+
+                                );
+
+                              }
+
+                            }}
+
+                            aria-label={`Decrease ${item.name} quantity`}
+>
+<Minus size={14} />
+</button>
+ 
+                          <span>{item.quantity}</span>
+ 
+                          <button
+
+                            type="button"
+
+                            onClick={() =>
+
+                              onQuantityChange(
+
+                                item.id,
+
+                                item.quantity + 1
+
+                              )
+
+                            }
+
+                            aria-label={`Increase ${item.name} quantity`}
+>
+<Plus size={14} />
+</button>
+</div>
+</div>
+ 
+                      {item.badge && (
+<div className={styles.productBadge}>
+
+                          ✦ {item.badge}
+</div>
+
+                      )}
+</div>
+</div>
+
+                ))}
+</div>
+ 
+              {/* Shipping Message */}
+<div className={styles.shippingMessage}>
+<Truck size={21} strokeWidth={1.6} />
+ 
+                <span>
+
+                  {shippingFee === 0
+
+                    ? "Shipping is free on your order"
+
+                    : `Shipping: ${formatPrice(shippingFee)}`}
+</span>
+</div>
+</div>
+ 
+            {/* Fixed Bottom */}
+<div className={styles.cartFooter}>
+<div className={styles.summaryRow}>
+<span>Subtotal ({cartCount} items)</span>
+ 
+                <strong>{formatPrice(subtotal)}</strong>
+</div>
+ 
+              {savings > 0 && (
+<div className={styles.savingsRow}>
+<span>You save</span>
+<strong>− {formatPrice(savings)}</strong>
+</div>
+
+              )}
+ 
+              {shippingFee > 0 && (
+<div className={styles.summaryRow}>
+<span>Shipping</span>
+<strong>{formatPrice(shippingFee)}</strong>
+</div>
+
+              )}
+ 
+              <div className={styles.totalRow}>
+<span>Total</span>
+<strong>{formatPrice(total)}</strong>
+</div>
+ 
+              <button
+
+                type="button"
+
+                className={styles.checkoutButton}
+
+                onClick={() =>
+
+                  onCheckout({
+
+                    items,
+
+                    subtotal,
+
+                    savings,
+
+                    shippingFee,
+
+                    total,
+
+                  })
+
+                }
+>
+<LockKeyhole size={18} strokeWidth={1.7} />
+
+                Proceed to Checkout
+<ArrowRight size={19} />
+</button>
+ 
+              <button
+
+                type="button"
+
+                className={styles.continueButton}
+
+                onClick={handleContinueShopping}
+>
+
+                Continue Shopping
+</button>
+ 
+              <div className={styles.secureText}>
+<LockKeyhole size={12} />
+
+                Secure & protected checkout
+</div>
+</div>
+</>
+
+        )}
+</aside>
+</>
+
+  );
+
 }
+ 
+export default ShreeHariCart;
+
+ 
