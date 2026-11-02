@@ -1,7 +1,11 @@
 
-import styles from './Products.module.css'
+
+import styles from "./Products.module.css";
+ 
 import React, { useRef, useState } from "react";
 
+import { Link } from "react-router-dom";
+ 
 import {
 
   Heart,
@@ -21,8 +25,10 @@ import {
   Flower2,
 
 } from "lucide-react";
-import featuredBg from '../../assets/featured-bg.png'
  
+import { useCart } from "../../Context/CartContext";
+ 
+import featuredBg from "../../assets/featured-bg.png";
  
 import godfather from "../../assets/god_father.webp";
 
@@ -38,11 +44,9 @@ import br540 from "../../assets/br_540.webp";
  
 const featuredProducts = [
 
-
-
   {
 
-    id: 1,
+    id: 7,
 
     name: "GODFATHER",
 
@@ -58,11 +62,17 @@ const featuredProducts = [
 
     reviews: 24,
 
+    price: 1300,
+
+    mrp: 1799,
+
+    size: "100 ml",
+
   },
 
   {
 
-    id: 2,
+    id: 1,
 
     name: "GUCCI FLORA",
 
@@ -78,11 +88,17 @@ const featuredProducts = [
 
     reviews: 18,
 
+    price: 1300,
+
+    mrp: 1799,
+
+    size: "100 ml",
+
   },
 
   {
 
-    id: 3,
+    id: 12,
 
     name: "BLACK AFGANO",
 
@@ -98,11 +114,17 @@ const featuredProducts = [
 
     reviews: 31,
 
+    price: 1300,
+
+    mrp: 1799,
+
+    size: "100 ml",
+
   },
 
   {
 
-    id: 4,
+    id: 3,
 
     name: "BLUE-DE-CHANNEL",
 
@@ -118,11 +140,17 @@ const featuredProducts = [
 
     reviews: 27,
 
+    price: 1300,
+
+    mrp: 1799,
+
+    size: "100 ml",
+
   },
 
   {
 
-    id: 5,
+    id: 2,
 
     name: "BOMBSHELL",
 
@@ -138,12 +166,17 @@ const featuredProducts = [
 
     reviews: 27,
 
-  },
+    price: 1300,
 
+    mrp: 1799,
+
+    size: "100 ml",
+
+  },
 
   {
 
-    id: 6,
+    id: 4,
 
     name: "BR.540",
 
@@ -159,21 +192,19 @@ const featuredProducts = [
 
     reviews: 27,
 
+    price: 1300,
+
+    mrp: 1799,
+
+    size: "100 ml",
+
   },
-
-
-
-
-  
-
 
 ];
  
 const FeaturedProducts = ({
 
   products = featuredProducts,
-
-  onAddToCart,
 
   onQuickView,
 
@@ -184,6 +215,8 @@ const FeaturedProducts = ({
   const sliderRef = useRef(null);
 
   const [wishlist, setWishlist] = useState([]);
+ 
+  const { addToCart } = useCart();
  
   const toggleWishlist = (id) => {
 
@@ -202,16 +235,20 @@ const FeaturedProducts = ({
   const scrollProducts = (direction) => {
 
     const slider = sliderRef.current;
-
+ 
     if (!slider) return;
  
     const firstCard = slider.querySelector("article");
-
+ 
     if (!firstCard) return;
  
-    const gap = parseFloat(getComputedStyle(slider).columnGap) || 0;
+    const gap =
 
-    const distance = firstCard.getBoundingClientRect().width + gap;
+      parseFloat(getComputedStyle(slider).columnGap) || 0;
+ 
+    const distance =
+
+      firstCard.getBoundingClientRect().width + gap;
  
     slider.scrollBy({
 
@@ -220,6 +257,12 @@ const FeaturedProducts = ({
       behavior: "smooth",
 
     });
+
+  };
+ 
+  const handleAddToCart = (product) => {
+
+    addToCart(product);
 
   };
  
@@ -279,7 +322,12 @@ const FeaturedProducts = ({
 <ChevronLeft size={26} />
 </button>
  
-          <div className={styles.productsSlider} ref={sliderRef}>
+          <div
+
+            className={styles.productsSlider}
+
+            ref={sliderRef}
+>
 
             {products.map((product) => (
 <article
@@ -293,17 +341,24 @@ const FeaturedProducts = ({
                 key={product.id}
 >
 <div className={styles.imageFrame}>
+<Link
+
+                    to={`/product/${product.id}`}
+
+                    aria-label={`View ${product.name}`}
+>
 <img
 
-                    src={product.image}
+                      src={product.image}
 
-                    alt={product.name}
+                      alt={product.name}
 
-                    className={styles.productImage}
+                      className={styles.productImage}
 
-                    loading="lazy"
+                      loading="lazy"
 
-                  />
+                    />
+</Link>
  
                   <button
 
@@ -319,7 +374,11 @@ const FeaturedProducts = ({
 
                     }`}
 
-                    onClick={() => toggleWishlist(product.id)}
+                    onClick={() =>
+
+                      toggleWishlist(product.id)
+
+                    }
 
                     aria-label={
 
@@ -331,7 +390,11 @@ const FeaturedProducts = ({
 
                     }
 
-                    aria-pressed={wishlist.includes(product.id)}
+                    aria-pressed={wishlist.includes(
+
+                      product.id
+
+                    )}
 >
 <Heart
 
@@ -352,7 +415,23 @@ const FeaturedProducts = ({
 </div>
  
                 <div className={styles.productDetails}>
-<h3>{product.name}</h3>
+<h3>
+<Link
+
+                      to={`/product/${product.id}`}
+
+                      style={{
+
+                        textDecoration: "none",
+
+                        color: "inherit",
+
+                      }}
+>
+
+                      {product.name}
+</Link>
+</h3>
  
                   <span className={styles.category}>
 
@@ -372,26 +451,32 @@ const FeaturedProducts = ({
 >
 <div className={styles.stars}>
 
-                      {Array.from({ length: 5 }, (_, i) => (
+                      {Array.from(
+
+                        { length: 5 },
+
+                        (_, i) => (
 <Star
 
-                          key={i}
+                            key={i}
 
-                          size={16}
+                            size={16}
 
-                          fill={
+                            fill={
 
-                            i < product.rating
+                              i < product.rating
 
-                              ? "currentColor"
+                                ? "currentColor"
 
-                              : "none"
+                                : "none"
 
-                          }
+                            }
 
-                        />
+                          />
 
-                      ))}
+                        )
+
+                      )}
 </div>
  
                     <span>({product.reviews})</span>
@@ -404,11 +489,15 @@ const FeaturedProducts = ({
 
                       className={styles.addToCartBtn}
 
-                      onClick={() => onAddToCart?.(product)}
-
-                      disabled={!onAddToCart}
+                      onClick={() => handleAddToCart(product)}
 >
-<ShoppingBag size={18} strokeWidth={1.7} />
+<ShoppingBag
+
+                        size={18}
+
+                        strokeWidth={1.7}
+
+                      />
 <span>Add to Cart</span>
 </button>
  
@@ -418,13 +507,23 @@ const FeaturedProducts = ({
 
                       className={styles.quickViewBtn}
 
-                      onClick={() => onQuickView?.(product)}
+                      onClick={() =>
+
+                        onQuickView?.(product)
+
+                      }
 
                       disabled={!onQuickView}
 
                       aria-label={`Quick view ${product.name}`}
 >
-<Eye size={20} strokeWidth={1.7} />
+<Eye
+
+                        size={20}
+
+                        strokeWidth={1.7}
+
+                      />
 </button>
 </div>
 </div>

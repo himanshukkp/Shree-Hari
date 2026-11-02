@@ -1,35 +1,92 @@
-import Header from './components/Header'
-import './App.css'
-
-import ShreeHariFooter from './components/Footer/Footer'
-import ShreeHariCart from './components/Cart/Cart'
-import AllProducts from './components/AllProducts/AllProducts'
-import { Route,Routes } from 'react-router-dom'
-import Home from './components/pages/Home/Home'
 
 
+import Header from "./components/Header";
+
+import "./App.css";
+ 
+import ShreeHariFooter from "./components/Footer/Footer";
+
+import ShreeHariCart from "./components/Cart/Cart";
+
+import AllProducts from "./components/AllProducts/AllProducts";
+ 
+import { Route, Routes } from "react-router-dom";
+ 
+import Home from "./components/pages/Home/Home";
+
+import Product from "./components/productpage/Productpage";
+ 
+import { useCart } from "./Context/CartContext";
+ 
 function App() {
 
+  const {
+
+    cartItems,
+
+    cartOpen,
+
+    setCartOpen,
+
+    addToCart,
+
+    updateQuantity,
+
+    removeFromCart,
+
+  } = useCart();
+ 
   return (
-    <>
-      <Header/>
-      
-      
-   
-    <ShreeHariCart></ShreeHariCart>
-  
-   <Routes>
-    <Route path='/' element={<Home/>}></Route>
-    <Route path='/products' element={<AllProducts/>}></Route>
-   </Routes>
+<>
+<Header />
+ 
+      <ShreeHariCart
 
-    <ShreeHariFooter></ShreeHariFooter>
-    
-    
-    
+        open={cartOpen}
 
-    </>
-  )
+        onClose={() => setCartOpen(false)}
+
+        items={cartItems}
+
+        onQuantityChange={updateQuantity}
+
+        onRemove={removeFromCart}
+
+      />
+ 
+      <Routes>
+<Route
+
+          path="/"
+
+          element={<Home onAddToCart={addToCart} />}
+
+        />
+ 
+        <Route
+
+          path="/products"
+
+          element={<AllProducts onAddToCart={addToCart} />}
+
+        />
+ 
+        <Route
+
+          path="/product/:id"
+
+          element={<Product onAddToCart={addToCart} />}
+
+        />
+</Routes>
+ 
+      <ShreeHariFooter />
+</>
+
+  );
+
 }
+ 
+export default App;
 
-export default App
+ 
