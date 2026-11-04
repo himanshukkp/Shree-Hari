@@ -4,6 +4,7 @@ import Categories from '../../categories/Categories'
 import Banner from '../../Banner/Banner'
 import FeaturedProducts from '../../Products/Products'
 import ScentedAgarbatti from '../../Agarbatti/Agarbatti'
+import AttarCollection from '../../Attar/AttarCollection'
 
 function Home() {
   return (
@@ -14,7 +15,9 @@ function Home() {
     <Categories></Categories>
     <Banner/>
     <FeaturedProducts></FeaturedProducts>
+    <AttarCollection></AttarCollection>
     <ScentedAgarbatti></ScentedAgarbatti>
+
     </div>
   )
 }

@@ -33,9 +33,9 @@ function Hero() {
           </a>
           </Link>
 
-          <a href="#about" className="btn-secondary">
+          {/* <a href="#about" className="btn-secondary">
             Discover More
-          </a>
+          </a> */}
         </div>
 
         <div className="hero-footer">
