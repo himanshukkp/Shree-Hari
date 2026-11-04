@@ -146,7 +146,7 @@ export default function ShreeHariFooter({ onNewsletterSubscribe }) {
 
       <div className={styles.footerBottom}>
         <p>© {new Date().getFullYear()} Shree Hari Attar & Perfumes. All rights reserved.
-          Developed By Himanshu Makhija (SOFTWARE DEVELOPER)
+          Developed By Himanshu Makhija (SOFTWARE DEVELOPER) updated
         </p>
         <div className={styles.paymentMethods}>
           <span>We Accept</span>
