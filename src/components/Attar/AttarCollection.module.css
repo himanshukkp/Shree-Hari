@@ -784,4 +784,7 @@
 
 }
 
- 
+ /* Add to your existing AttarCollection.module.css (no other changes required) */
+.productImageBox { display: block; text-decoration: none; color: inherit; }
+.productNameLink { text-decoration: none; color: inherit; }
+.productNameLink:hover h4 { color: #a36b37; }
