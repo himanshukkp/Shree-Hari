@@ -30,7 +30,7 @@ export default function AttarCollection() {
   };
 
   return (
-    <section className={styles.section}>
+    <section id ="attar-collection" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.sectionHeading}>
           <div className={styles.eyebrow}><Sparkles size={15} /><span>THE ESSENCE OF TRADITION</span><Sparkles size={15} /></div>

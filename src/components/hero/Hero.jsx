@@ -1,66 +1,84 @@
 
+
 import React from "react";
-import "./Hero.css";
+
 import { Link } from "react-router-dom";
 
+import "./Hero.css";
+ 
+import heroVideo from "../../assets/shree-hari-hero.mp4";
+
+import poster from "../../assets/black_afgano.webp";
+ 
 function Hero() {
-    
+
   return (
-  <>
+<section className="hero">
+<div className="hero-content">
+<span className="hero-subtitle">
 
-    <section className="hero">
-      <div className="hero-content">
-        <span className="hero-subtitle">
           THE ART OF FINE FRAGRANCE
-        </span>
-
+</span>
+ 
         <h1>
+
           A Scent That
-          <br />
-          <span>Defines You.</span>
-        </h1>
-
+<br />
+<span>Defines You.</span>
+</h1>
+ 
         <p className="hero-description">
+
           Discover the essence of timeless luxury.
+
           Exquisite fragrances crafted to express
+
           your individuality and leave a lasting
+
           impression.
-        </p>
-
+</p>
+ 
         <div className="hero-buttons">
-          <Link to ='/products'> <a href="#shop" className="btn-primary">
-            Shop Collection <span>↗</span>
-          </a>
-          </Link>
+<Link to="/products" className="btn-primary">
 
-          {/* <a href="#about" className="btn-secondary">
-            Discover More
-          </a> */}
-        </div>
-
+            Shop Collection <span aria-hidden="true">↗</span>
+</Link>
+</div>
+ 
         <div className="hero-footer">
-          <span>01 / 03</span>
-          <span>EXCEPTIONAL FRAGRANCES</span>
-        </div>
-      </div>
+<span>01 / 03</span>
+<span>EXCEPTIONAL FRAGRANCES</span>
+</div>
+</div>
+ 
+      <div className="hero-video">
+<video
 
-      <div className="hero-image">
-        <div className="image-glow"></div>
+          className="hero-video-element"
 
-        <img
-          src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1000&q=85"
-          alt="Luxury perfume bottle"
-        />
+          autoPlay
 
-        <div className="image-label">
-          <span>EAU DE PARFUM</span>
-          <h3>Golden Essence</h3>
-          <p>A fragrance beyond time.</p>
-        </div>
-      </div>
-    </section>
-    </>
+          muted
+
+          loop
+
+          playsInline
+
+          preload="metadata"
+
+          poster={poster}
+
+          aria-label="Shree Hari luxury fragrance promotional video"
+>
+<source src={heroVideo} type="video/mp4" />
+</video>
+</div>
+</section>
+
   );
-}
 
+}
+ 
 export default Hero;
+
+ 

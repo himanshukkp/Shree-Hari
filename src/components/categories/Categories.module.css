@@ -39,5 +39,130 @@
 @media (max-width: 760px) { .section { padding: 42px 18px 50px; } .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 15px; } .header { margin-bottom: 28px; } .header h2 { font-size: clamp(35px, 8vw, 52px); } .subtitle { font-size: 9px; letter-spacing: .15em; } .card h3 { font-size: 20px; } .card p { font-size: 15px; } }
 @media (max-width: 380px) { .section { padding-inline: 10px; } .grid { gap: 23px 10px; } .card h3 { font-size: 17px; } .card p { font-size: 13px; } .eyebrow { letter-spacing: .23em; } }
 @media (prefers-reduced-motion: reduce) { .imageFrame img, .explore span { transition: none; } }
+
+
+/* Coming Soon Badge */
+ 
+.imageFrame {
+
+  position: relative;
+
+}
+ 
+.comingSoonBadge {
+
+  position: absolute;
+
+  top: 12px;
+
+  right: 65px;
+
+  z-index: 2;
+ 
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+ 
+  padding: 7px 12px;
+
+  border-radius: 30px;
+ 
+  background: rgba(255, 248, 231, 0.96);
+
+  border: 1px solid rgba(181, 143, 71, 0.35);
+ 
+  color: #6b2638;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+ 
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(6px);
+
+}
+ 
+.badgeDot {
+
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #bd9653;
+
+  flex-shrink: 0;
+
+}
+ 
+/* Unavailable categories */
+ 
+.unavailableCard {
+
+  cursor: default;
+
+}
+ 
+.soonText {
+
+  display: inline-block;
+
+  margin-top: 8px;
+ 
+  color: #a17c4b;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.4px;
+
+}
+ 
+/* Mobile */
+ 
+@media (max-width: 600px) {
+
+  .comingSoonBadge {
+
+    top: 8px;
+
+    right: 49px;
+
+    padding: 5px 8px;
+
+    font-size: 8px;
+
+    gap: 5px;
+
+    letter-spacing: 0.3px;
+
+  }
+ 
+  .badgeDot {
+
+    width: 5px;
+
+    height: 5px;
+
+  }
+ 
+  .soonText {
+
+    font-size: 10px;
+
+  }
+
+}
+
+ 
  
  
